@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- フォームタグでフォームを作る -->
+<!-- action=どこにデータを飛ばすか -->
+<!-- method=問合せしてデータを投入する際はPOSTを使用 -->
+<form action="" method="POST" >{% csrf_token %}
+
+    <p>{{form.title}}</p>
+    <p>{{form.memo}}</p>
+    <p>{{form.priority}}</p>
+    <p>{{form.duedate}}</p>
+    <!-- ボタンの種類 -->
+    <!-- 提出するボタンはtypeはsubmit -->
+    <input type="submit" value="更新">
+</form>
+
+{% endblock content %}

@@ -1,0 +1,26 @@
+<!-- 各カラムのオブジェクトをここでobjectとしてもってこれる。 -->
+<!-- urlでpkを指定してアクセスする -->
+{% extends 'base.html' %}
+
+{% block header%}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Detail</h1>
+      <p class="lead">This is a detail of the TodoList content</p>
+    </div>
+  </div>
+
+{% endblock header%}
+
+{% block content %}
+    <!-- conatiner=bootstrapのクラスの名前で、画面の幅に合わせて余裕を持たせた幅に勝手し設定してくれる -->
+    <div class='container'>
+        <div class="alert alert-success" role="alert">
+            <p>タイトル：{{object.title}}</p>
+            <p>　　詳細：{{object.memo}}</p>
+            <p>　　期日：{{object.duedate}}</p>
+            <p>　優先度：{{object.priority}}</p>
+        </div>
+    </div>
+{% endblock content %}
+

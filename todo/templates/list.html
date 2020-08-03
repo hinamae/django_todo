@@ -1,0 +1,40 @@
+<!-- base.htmlを元としてファイルを作成することの宣言 -->
+{% extends 'base.html' %}
+
+{% block header %}
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">TodoList</h1>
+      <p class="lead">This is a list of your Todos.</p>
+    </div>
+  </div>
+
+{% endblock header%}
+
+{% block content %}
+    <div class='container'>
+    
+        <!--------------- todo新規作成 -->
+        <a href="{% url 'create' %}" class="btn btn-info" role="button" aria-pressed="true">新規作成</a>
+        <br>
+        <br>
+        <!--------------- todoリスト一覧表示 -->
+        <!-- object_listが全部のデータを表している -->
+            {% for item in object_list%}
+
+            <!-- オブジェクトそのものを返す→{{ item }} -->
+            <!-- オブジェクトの属性を指定する→item.title -->
+
+                <ul>
+                    <div class="alert alert-{{ item.priority }}" role="alert">
+                        <p>{{item.title}}  期日:{{item.duedate}}</p>
+                        <a href="{% url 'update' item.pk %}" class="btn btn-info" role="button" aria-pressed="true">編集</a>
+                        <a href="{% url 'delete' item.pk %}" class="btn btn-primary" role="button" aria-pressed="true">削除</a>
+                        <a href="{% url 'detail' item.pk %}" class="btn btn-success" role="button" aria-pressed="true">詳細</a>
+                    </div>
+                </ul>
+            {% endfor %}
+    </div>
+
+{% endblock content %}
+

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!-- フォームタグでフォームを作る -->
+<!-- action=どこにデータを飛ばすか -->
+<!-- method=問合せしてデータを投入する際はPOSTを使用 -->
+<form action="" method="POST" >{% csrf_token %}
+
+    {{form.as_p}}
+    <!-- ボタンの種類 -->
+    <!-- 提出するボタンはtypeはsubmit -->
+    <input type="submit" value="作成">
+</form>
+
+{% endblock content %}
